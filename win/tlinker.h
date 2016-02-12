@@ -61,10 +61,10 @@ struct COFF_Symbol {
 #pragma pack(pop)
 
 struct LinkInfo {
-    COFF_FileHdr * fileHdr;
+    Elf64_Ehdr * fileHdr;
     char * strTable;
-    struct COFF_Symbol * symbolTable;
-    struct COFF_SectionHdr * sectionHdrs;
+    struct Elf64_Sym * symbolTable;
+    struct Elf64_Shdr * sectionHdrs;
     char * fileContent;	
 };
 

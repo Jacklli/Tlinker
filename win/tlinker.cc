@@ -3,6 +3,7 @@
 #include <string.h>
 #include <memory.h>
 #include <malloc.h>
+#include "elf.h"
 #include "tlinker.h"
 
 void fatalError(char * msg) {
@@ -11,7 +12,8 @@ void fatalError(char * msg) {
 }
 
 void initStrTb(struct LinkInfo * plinkInfo) {
-    int symbolTbSize = plinkInfo->fileHdr->ulNumSymbol * sizeof(struct COFF_Symbol);
+//    int symbolTbSize = plinkInfo->fileHdr->ulNumSymbol * sizeof(struct COFF_Symbol);
+    int symbolTbSize = plinkInfo->fileHdr->ulNumSymbol * sizeof(struct Elf64_Sym);
     //串表在符号表后面，所以计算符号表结束的偏移
     plinkInfo->strTable = plinkInfo->fileContent + plinkInfo->fileHdr->ulSymbolOffset + symbolTbSize;	
 }

@@ -45,10 +45,10 @@ int main(int argc, char *argv[]) {
     mem[5] = content[45];
     mem[6] = content[46];
     mem[7] = content[47];
-    printf("e_shoff is: %lu\n", e_shoff);
-    printf("sectionNum is: %d\n", e_shnum);
-    printf("uint32_t size is: %lu\n", sizeof(uint32_t));
-    printf("uint64_t size is: %lu\n", sizeof(uint64_t));
+//    printf("e_shoff is: %lu\n", e_shoff);
+//    printf("sectionNum is: %d\n", e_shnum);
+//    printf("uint32_t size is: %lu\n", sizeof(uint32_t));
+//    printf("uint64_t size is: %lu\n", sizeof(uint64_t));
     for(i = 0; i<e_shnum; i++) {
         pos = content + e_shoff + 64*i;
         mem = (char *)&sh_name;
@@ -115,8 +115,8 @@ int main(int argc, char *argv[]) {
             exec[4] = 0x5d;
             exec[5] = 0xc3;
             func = exec;
-            (*func)();
-            printf("after call function pointer, sum is: %d\n", sum);
+//            (*func)();     stilling core dump, will fix it.
+//            printf("after call function pointer, sum is: %d\n", sum);
         }
     }
 //    funcptr = codestart;

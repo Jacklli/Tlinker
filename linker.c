@@ -121,5 +121,6 @@ int main(int argc, char *argv[]) {
     }
 //    funcptr = codestart;
 //    funcptr();
+    fclose(fp);
     return 1;
 }
